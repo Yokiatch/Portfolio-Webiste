@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image as BootstrapImage } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -20,12 +20,13 @@ const About = () => {
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8 }}
           >
-            <Image 
+            <BootstrapImage 
               src="/images/profile.jpg" 
               roundedCircle 
               fluid 
               style={{ width: "250px", height: "250px", objectFit: "cover" }} 
             />
+
           </motion.div>
         </Col>
 
