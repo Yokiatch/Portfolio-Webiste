@@ -28,7 +28,14 @@ const NavigationBar = () => {
                 <i className="fab fa-linkedin"></i>
               </a>
             </li>
-
+            <Image 
+              src="/images/profile.jpg" 
+              alt="Profile" 
+              roundedCircle 
+              width="40"
+              height="40"
+              className="me-2"
+            />
           </Nav>
         </Navbar.Collapse>
       </Container>

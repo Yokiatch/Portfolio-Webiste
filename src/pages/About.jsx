@@ -20,11 +20,16 @@ const About = () => {
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8 }}
           >
-            <Image src="/profile.jpg" roundedCircle fluid width="250px" height="250px" />
+            <Image 
+              src="/images/profile.jpg" 
+              roundedCircle 
+              fluid 
+              style={{ width: "250px", height: "250px", objectFit: "cover" }} 
+            />
           </motion.div>
         </Col>
 
-        <Col md={6}>
+        <Col md={6} className="text-center text-md-start">
           <motion.p 
             className="lead"
             initial={{ opacity: 0, x: 50 }} 
