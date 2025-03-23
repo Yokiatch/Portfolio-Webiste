@@ -15,6 +15,20 @@ const NavigationBar = () => {
             <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
             <Nav.Link as={Link} to="/skills">Skills</Nav.Link>
             <Nav.Link as={Link} to="/resume">Resume</Nav.Link>
+            <li className="nav-item">
+            <a className="nav-link" href="/contact">Contact</a>
+            </li>
+            <li className="nav-item">
+              <a href="https://github.com/Yokiatch" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-github"></i>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="https://linkedin.com/in/dinesh-singh-1e324f5" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin"></i>
+              </a>
+            </li>
+
           </Nav>
         </Navbar.Collapse>
       </Container>

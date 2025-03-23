@@ -1,35 +1,74 @@
-import { Container, Form, Button } from "react-bootstrap";
-import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch("https://formspree.io/f/mrbpqawk", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      setSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+    }
+  };
+
   return (
-    <Container className="mt-5">
-      <h1 className="text-center mb-4">Contact Me</h1>
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }} 
-        animate={{ opacity: 1, scale: 1 }} 
-        transition={{ duration: 0.5 }}
-      >
-        <Form>
-          <Form.Group className="mb-3" controlId="name">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter your name" required />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter your email" required />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="message">
-            <Form.Label>Message</Form.Label>
-            <Form.Control as="textarea" rows={3} placeholder="Your message" required />
-          </Form.Group>
-
-          <Button variant="primary" type="submit">Send Message</Button>
-        </Form>
-      </motion.div>
-    </Container>
+    <div className="container mt-5">
+      <h2>Contact Me</h2>
+      {success && <p className="text-success">Message sent successfully!</p>}
+      <form onSubmit={handleSubmit} className="mt-3">
+        <div className="mb-3">
+          <label className="form-label">Name</label>
+          <input
+            type="text"
+            name="name"
+            className="form-control"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Email</label>
+          <input
+            type="email"
+            name="email"
+            className="form-control"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Message</label>
+          <textarea
+            name="message"
+            className="form-control"
+            rows="4"
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Send Message</button>
+      </form>
+    </div>
   );
 };
 
