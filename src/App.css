@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+h2 {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.badge {
+  transition: transform 0.3s ease-in-out;
+}
+
+.badge:hover {
+  transform: scale(1.1);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
