@@ -27,15 +27,7 @@ const NavigationBar = () => {
               <a href="https://linkedin.com/in/dinesh-singh-1e324f5" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-linkedin"></i>
               </a>
-            </li>
-            <Image 
-              src="/images/profile.jpg" 
-              alt="Profile" 
-              roundedCircle 
-              width="40"
-              height="40"
-              className="me-2"
-            />
+            </li> 
           </Nav>
         </Navbar.Collapse>
       </Container>
